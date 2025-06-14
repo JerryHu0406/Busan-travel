@@ -42,8 +42,8 @@
             padding-left: 10px;
         }
         strong {
-            font-weight: bold; /* Changed to bold only, relying on color being set elsewhere or default */
-            color: #e74c3c; /* Still keeping the strong tag color for emphasis as it stands out well */
+            font-weight: bold;
+            color: #e74c3c;
         }
         .section-header {
             background-color: #ecf0f1;
@@ -74,7 +74,7 @@
         }
         ul li::before {
             line-height: 1.5;
-            color: #333; /* Changed from #3498db to #333 (black/dark grey) */
+            color: #333;
             font-weight: bold;
             display: inline-block;
             width: 1em;
@@ -170,40 +170,6 @@
             flex: 2;
         }
 
-        @media (max-width: 768px) {
-            .media-block {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-                padding: 20px;
-            }
-            .media-image {
-                flex: auto; /* 自動調整寬度 */
-                width: 100%; /* 圖片佔滿父容器寬度 */
-                max-width: none; /* 移除最大寬度限制，讓圖片在小螢幕下完全佔滿 */
-                margin-bottom: 20px; /* 圖片和文字之間的間距 */
-            }
-
-            .media-text {
-                flex: auto; /* 自動調整寬度 */
-                width: 100%; /* 文字佔滿父容器寬度 */
-            }
-
-            .media-text h2 {
-                font-size: 1.5em; /* 調整標題字體大小 */
-            }
-
-            .media-text p {
-                font-size: 1em; /* 調整段落字體大小 */
-            }
-        }
-        /* 更小的螢幕優化 */
-        @media (max-width: 480px) {
-            .media-block {
-                padding: 15px;
-                margin-bottom: 30px;
-            }
-        }
         .panels {
             width: 90%;
             max-width: 1000px;
@@ -211,7 +177,7 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden; /* 確保內容隱藏時不超出邊界 */
+            overflow: hidden;
         }
         .panels-header {
             display: flex;
@@ -233,35 +199,31 @@
             width: 10px;
             height: 10px;
             transition: transform 0.3s ease-in-out;
-            /* 這裡可以使用 SVG 箭頭，或使用 CSS border 創建 */
-            /* 簡單起見，這裡模擬一個箭頭 */
             border: solid #333;
             border-width: 0 3px 3px 0;
             display: inline-block;
             padding: 3px;
             margin-left: 30px;
-            transform: rotate(45deg); /* 初始指向右下 */
+            transform: rotate(45deg);
         }
         .panels-header.active .arrow-icon {
-            transform: rotate(-135deg); /* 展開時指向左上 */
-            /* 更好的箭頭是初始向下，展開向上，這需要不同的 transform 值 */
-            /* 如果初始箭頭向下: transform: rotate(0deg); active: transform: rotate(180deg); */
+            transform: rotate(-135deg);
         }
         .panels-content {
             font-size: 1.0em;
-            max-height: 0; /* 初始隱藏，高度為 0 */
-            overflow: hidden; /* 超出部分隱藏 */
+            max-height: 0;
+            overflow: hidden;
             overflow-y: auto;
             overflow-x: auto;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* 高度過渡動畫 */
-            padding: 0 20px; /* 初始內邊距為 0 */
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 20px;
             background-color: #fff;
             color: #666;
             line-height: 1.2;
         }
         .panels-content.open {
-            max-height: 800px; /* 展開時的最大高度，應足夠容納內容 */
-            padding: 15px 20px; /* 展開時的內邊距 */
+            max-height: 800px;
+            padding: 15px 20px;
         }
         .panels-item {
             border-bottom: 3px solid #eee;
@@ -270,11 +232,7 @@
             border-bottom: none;
         }
         .panels-box {
-            -webkit-box-align: center;
-            -ms-flex-align: center;
             align-items: center;
-            display: -webkit-box;
-            display: -ms-flexbox;
             display: flex;
             padding: 1px 0 10px;
         }
@@ -292,6 +250,58 @@
         .temperature {
             flex-grow: 1;
             text-align: right;
+        }
+
+        /* ----- Mobile Responsive Styles ----- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .media-block {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding: 20px;
+            }
+            .media-image {
+                flex: auto;
+                width: 100%;
+                max-width: none;
+                margin-bottom: 20px;
+            }
+            .media-text {
+                flex: auto;
+                width: 100%;
+            }
+            .media-text h2 {
+                font-size: 1.5em;
+            }
+            .media-text p {
+                font-size: 1em;
+            }
+            /* Weather panel adjustments */
+            .panels-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .left, .right {
+                flex: 100%;
+                width: 100%;
+                margin-right: 0;
+            }
+            .left {
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .media-block {
+                padding: 15px;
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
